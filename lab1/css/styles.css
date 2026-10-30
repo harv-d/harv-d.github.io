@@ -1,7 +1,7 @@
 body {
   background-color: #000000;
   color: #FFFFFF; 
-  font-family: Arial, sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   line-height: 1.5;  
 }
 
@@ -20,7 +20,7 @@ nav a {
 nav a:hover {
   color: #fff;
   background-color: #173f73;
-  font-size: 2rem;
+  font-size: 1.75rem;
   border-bottom: 2px solid lime;
 }
 
@@ -32,6 +32,7 @@ main {
 }
 
 footer {
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.75rem;
   color: lightgray;
 }
@@ -81,4 +82,12 @@ th, td {
 
 .hobby-list strong {
     color: lime;
+}
+
+iframe {
+  display: block;
+  width: min(100%, 40rem);
+  min-height: 40rem;
+  margin: 0 auto;
+  border: 1px solid #dbe4f0;
 }
