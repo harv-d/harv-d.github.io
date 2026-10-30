@@ -1,0 +1,76 @@
+Guided Lab: Personal Portfolio
+Checkpoint Responses
+
+Downloaded: 10/30/2026, 3:42:19 PM
+
+Lesson 1: Plan the portfolio
+Question:
+No checkpoint question for this lesson.
+
+Student response:
+[No response saved]
+
+----------------------------------------
+
+Lesson 2: Create the Home Page
+Question:
+Is <div> a semantic element? Why or why not?
+
+Student response:
+It is not because <div> is only used as a container of sorts while a semantic element is used for developers to describe meaning of a certain code.
+
+----------------------------------------
+
+Lesson 3: Add Home Page Content
+Question:
+Is the footer optional in all assignments and exams?
+
+Student response:
+Footer is required for all assignments and exams.
+
+----------------------------------------
+
+Lesson 4: Add External Stylesheet
+Question:
+Why is an external stylesheet usually easier to maintain than many inline styles?
+
+Student response:
+Stylesheets keep everything organized in one location rather than having to look through several lines of code to find an inline style.
+
+----------------------------------------
+
+Lesson 5: Style Home Page
+Question:
+Examine the code below. What to do to display the content of both div elements next to each other?
+
+Student response:
+We would have to utilize flexbox in the display property of the div. Would first have to assign the div a container like <div class="container"> then use .container and display: flex;
+
+----------------------------------------
+
+Lesson 6: Create the About page
+Question:
+Explain the difference between an ID selector and a class selector in CSS. When would you use each one?
+
+Student response:
+An ID selector is used to style one unique element, while a class selector can style multiple elements. Use ID for something specific and a class for elements that share the same styling.
+
+----------------------------------------
+
+Lesson 7: Create the Contact page
+Question:
+What information does the title attribute provide when an iframe embeds a contact form?
+
+Student response:
+Provides a description of the embeded content for accessibility purposes.
+
+----------------------------------------
+
+Lesson 8: Use online fonts
+Question:
+Why should decorative online fonts usually be limited to headings instead of all body text?
+
+Student response:
+Decorative fonts would be difficult to read for body text, especially if there are paragraphs.
+
+----------------------------------------
