@@ -37,61 +37,6 @@ footer {
   color: lightgray;
 }
 
-#about-main {
-  display: block; /* Override the flex display for the about page */
-  margin: 0 auto; /* Center the content horizontally */
-}
-
-#table-header {
-  background-color: #173f73; /* Dark blue background for header */
-  color: #FFFFFF; /* White text for header */
-}
-
-.table-row {
-  background-color: #f2f2f2; /* Light gray background for rows */
-  color: black;
-} 
-
-table{
-  border-collapse: collapse; /* Collapse borders into a single border */
-  margin: 0 auto 2rem; /* Add some space below the table */
-  width: 50%;
-} 
-
-th, td {
-  border: 1px solid #dbe4f0; /* Add a border to the table, header cells, and data cells */
-  padding: 0.5rem; /* Add padding to cells for better readability */
-  text-align: left; /* Align text to the left */
-}
-
-.hobby-list {
-    list-style-type: none;
-    padding: 0;
-    width: 50%;
-    margin: 0 auto 2rem;
-}
-
-.hobby-list li {
-    background-color: #171717;
-    border-left: 3px solid #173f73;
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    text-align: left;
-    border-radius: 5px;
-}
-
-.hobby-list strong {
-    color: lime;
-}
-
-iframe {
-  display: block;
-  width: min(100%, 40rem);
-  min-height: 40rem;
-  margin: 0 auto;
-  border: 1px solid #dbe4f0;
-}
-
 article {
   max-width: 800px;
   padding: 2rem;
@@ -104,4 +49,69 @@ article a {
 
 article a:hover {
   color: white;
+}
+
+#hardware-main {
+  display: block;
+}
+
+.hardware-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hardware-columns {
+  display: flex;
+  flex: 2;
+  gap: 2rem;
+}
+
+.hardware-columns article {
+  flex: 1;
+  background-color: #171717;
+  border-left: 3px solid #173f73;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hardware-layout figure {
+  flex: 1;
+  margin: 0;
+}
+
+.hardware-layout img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .hardware-layout {
+    flex-direction: column;
+  }
+
+  .hardware-columns {
+    flex-direction: column;
+  }
+}
+
+aside a {
+  color: lime;
+}
+
+aside a:hover {
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .hardware-columns {
+    flex-direction: column;
+  }
+}
+
+#hardware-main aside {
+  margin-top: 3rem;
 }
