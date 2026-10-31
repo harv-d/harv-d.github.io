@@ -1,8 +1,8 @@
 body {
   background-color: #000000;
-  color: #FFFFFF; 
+  color: #FFFFFF;
   font-family: "Space Grotesk", sans-serif;
-  line-height: 1.5;  
+  line-height: 1.5;
 }
 
 header, nav, main, footer {
@@ -14,7 +14,7 @@ nav a {
   padding: 1rem;
   font-size: 1.5rem;
   color: #00FF00;
-  text-decoration: none; /* Remove underline from links */
+  text-decoration: none;
 }
 
 nav a:hover {
@@ -24,17 +24,12 @@ nav a:hover {
   border-bottom: 2px solid lime;
 }
 
+/* Main Content */
 main {
-  display: flex; /* Use Flexbox for layout */
-  justify-content: center; /* Center the items horizontally */
+  display: flex;
+  justify-content: center;
   gap: 2rem;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-}
-
-footer {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 0.75rem;
-  color: lightgray;
+  flex-wrap: wrap;
 }
 
 article {
@@ -43,14 +38,15 @@ article {
   text-align: left;
 }
 
-article a {
+article a, aside a {
   color: lime;
 }
 
-article a:hover {
+article a:hover, aside a:hover {
   color: white;
 }
 
+/* Hardware Page */
 #hardware-main {
   display: block;
 }
@@ -88,6 +84,15 @@ article a:hover {
   height: auto;
 }
 
+#hardware-main aside {
+  margin-top: 3rem;
+}
+
+footer {
+  font-size: 0.75rem;
+  color: lightgray;
+}
+
 @media (max-width: 900px) {
   .hardware-layout {
     flex-direction: column;
@@ -98,20 +103,17 @@ article a:hover {
   }
 }
 
-aside a {
-  color: lime;
+/* Protocols Page */
+#protocols-main article {
+  max-width: 850px;
 }
 
-aside a:hover {
-  color: white;
+#protocols-main figure {
+  margin: 2rem;
+  align-self: center;
 }
 
-@media (max-width: 700px) {
-  .hardware-columns {
-    flex-direction: column;
-  }
-}
-
-#hardware-main aside {
-  margin-top: 3rem;
+#protocols-main img {
+  max-width: 100%;
+  height: auto;
 }
