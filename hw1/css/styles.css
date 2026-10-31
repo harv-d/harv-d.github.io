@@ -103,17 +103,20 @@ footer {
   }
 }
 
-/* Protocols Page */
-#protocols-main article {
+/* Protocols and Security Pages */
+#protocols-main article,
+#security-main article {
   max-width: 850px;
 }
 
-#protocols-main figure {
+#protocols-main figure,
+#security-main figure {
   margin: 2rem;
   align-self: center;
 }
 
-#protocols-main img {
+#protocols-main img,
+#security-main img {
   max-width: 100%;
   height: auto;
 }
