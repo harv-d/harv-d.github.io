@@ -5,6 +5,8 @@ document.querySelector("#resetBtn").addEventListener("click", initializeGame);
 //Global variables
 let randomNumber;
 let attempts = 0;
+let wins = 0;
+let losses = 0;
 
 initializeGame();
 
@@ -12,6 +14,7 @@ function initializeGame() {
     randomNumber = Math.floor(Math.random() * 99) + 1;
     console.log("Random number:" + randomNumber);
     attempts = 0;
+    document.querySelector("#attemptsLeft").textContent = 7;
 
     //hiding the Reset button
     document.querySelector("#resetBtn").style.display = "none";
@@ -43,17 +46,22 @@ function checkGuess() {
 
     attempts++;
     console.log("Attempts:" + attempts);
+    document.querySelector("#attemptsLeft").textContent = 7 - attempts;
     feedback.style.color = "orange";
 
     if (guess == randomNumber) {
         feedback.textContent = "You guessed it! You Won!";
         feedback.style.color = "darkgreen";
+        wins++;
+        document.querySelector("#wins").textContent = wins;
         gameOver();
     } else {
-        document.querySelector("#guesses").textContent += " ";
+        document.querySelector("#guesses").textContent += guess + ", ";
         if (attempts == 7) {
             feedback.textContent = "Sorry, you lost!";
             feedback.style.color = "red";
+            losses++;
+            document.querySelector("#losses").textContent = losses;
             gameOver();
         } else if (guess > randomNumber) {
             feedback.textContent = "Guess was high";
@@ -61,4 +69,9 @@ function checkGuess() {
             feedback.textContent = "Guess was low";
         }
     }
+}
+
+function gameOver() {
+    document.querySelector("#guessBtn").style.display = "none";
+    document.querySelector("#resetBtn").style.display = "inline";
 }
