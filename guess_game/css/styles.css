@@ -12,6 +12,10 @@ header {
     margin-bottom: 30px;
 }
 
+header, nav, main, footer {
+    text-align: center;
+  }
+
 h1 {
     font-size: 32px;
     margin-bottom: 10px;
