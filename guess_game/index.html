@@ -3,6 +3,7 @@
     <head>
         <title> Guess a Number </title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
 
@@ -14,20 +15,28 @@
         <div id="main">
             Enter a guess:
             <input type="text" id="playerGuess" size="5">
-            <button id="guessBtn"> Guess </button><br>
+            <button id="guessBtn"> Guess </button>
             <button id="resetBtn"> Reset </button>
             <div id="feedback"></div>
-            <div> Previous Guesses:
+            <div class="game-info">
+                Previous Guesses:
                 <span id="guesses"></span>
             </div>
-            <div> Attempts Left: 
+            
+            <div class="game-info">
+                Attempts Left:
                 <span id="attemptsLeft">7</span>
             </div>
-            <div> Wins: 
-                <span id="wins">0</span>
-            </div>
-            <div> Losses: 
-                <span id="losses">0</span>
+            <div class="scoreboard">
+                <div class="score">
+                    <span id="wins">0</span>
+                    <p>Wins</p>
+                </div>
+            
+                <div class="score">
+                    <span id="losses">0</span>
+                    <p>Losses</p>
+                </div>
             </div>
         </div>
     

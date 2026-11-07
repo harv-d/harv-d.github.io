@@ -1,6 +1,15 @@
 //Event Listeners
 document.querySelector("#guessBtn").addEventListener("click", checkGuess);
 document.querySelector("#resetBtn").addEventListener("click", initializeGame);
+document.querySelector("#playerGuess").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        if (document.querySelector("#guessBtn").disabled) {
+            document.querySelector("#resetBtn").click();
+        } else {
+            document.querySelector("#guessBtn").click();
+        }
+    }
+});
 
 //Global variables
 let randomNumber;
@@ -31,6 +40,8 @@ function initializeGame() {
 
     //clearing previous guesses
     document.querySelector("#guesses").textContent = "";
+    document.querySelector("#guessBtn").disabled = false;
+    document.querySelector("#playerGuess").focus();
 }
 
 function checkGuess() {
@@ -57,6 +68,7 @@ function checkGuess() {
         gameOver();
     } else {
         document.querySelector("#guesses").textContent += guess + ", ";
+        document.querySelector("#playerGuess").value = "";
         if (attempts == 7) {
             feedback.textContent = "Sorry, you lost!";
             feedback.style.color = "red";
@@ -74,4 +86,5 @@ function checkGuess() {
 function gameOver() {
     document.querySelector("#guessBtn").style.display = "none";
     document.querySelector("#resetBtn").style.display = "inline";
+    document.querySelector("#guessBtn").disabled = true;
 }
