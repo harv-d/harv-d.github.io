@@ -27,7 +27,7 @@ function rightAnswer(index) {
   feedback.textContent = "Correct!";
   feedback.className = "bg-success text-white";
   setMarkImage(index, "checkmark.png", "Checkmark");
-  score += 25;
+  score += 10;
 }
 
 function wrongAnswer(index) {
@@ -116,11 +116,55 @@ function isFormValid() {
     }
 
     let selectedQ4 = document.querySelector("input[name=q4]:checked");
-
     if (selectedQ4 !== null && selectedQ4.value === "Rhode Island") {
         rightAnswer(4);
     } else {
         wrongAnswer(4);
+    }
+
+    let q5Answer = document.querySelector("#q5").value;
+    if (q5Answer === "ak") {
+        rightAnswer(5);
+    } else {
+        wrongAnswer(5);
+    }
+
+    let q6Answer = document.querySelector("#q6").value.toLowerCase().trim();
+    if (q6Answer === "florida") {
+        rightAnswer(6);
+    } else {
+        wrongAnswer(6);
+    }
+
+    let q7Answer = Number(document.querySelector("#q7").value);
+    if (q7Answer === 50) {
+        rightAnswer(7);
+    } else {
+        wrongAnswer(7);
+    }
+
+    let california = document.querySelector("#California").checked;
+    let oregon = document.querySelector("#Oregon").checked;
+    let nevada = document.querySelector("#Nevada").checked;
+    let washington = document.querySelector("#Washington").checked;
+    if (california && oregon && !nevada && washington) {
+        rightAnswer(8);
+    } else {
+        wrongAnswer(8);
+    }
+
+    let q9Answer = document.querySelector('input[name="q9"]:checked');
+    if (q9Answer && q9Answer.value === "Austin") {
+        rightAnswer(9);
+    } else {
+        wrongAnswer(9);
+    }
+
+    let q10Answer = document.querySelector('input[name="q10"]:checked');
+    if (q10Answer && q10Answer.value === "true") {
+        rightAnswer(10);
+    } else {
+        wrongAnswer(10);
     }
   
     document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
@@ -143,3 +187,18 @@ function isFormValid() {
         totalScore.textContent += " - Congratulations!";
     }
   }
+
+// Clears fields when refreshing page
+window.addEventListener("pageshow", function() {
+  document.querySelectorAll("input").forEach(function(input) {
+    if (input.type === "checkbox" || input.type === "radio") {
+        input.checked = false;
+    } else {
+      input.value = "";
+    }
+  });
+
+  document.querySelectorAll("select").forEach(function(select) {
+    select.selectedIndex = 0;
+  });
+});
