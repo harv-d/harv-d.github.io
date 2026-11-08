@@ -3,6 +3,10 @@ img {
     height: 24px;
     object-fit: contain;
 }
+.school-logo {
+    width: 200px;
+    height: auto;
+}
 
 body {
     background-color: #f8f9fa;
