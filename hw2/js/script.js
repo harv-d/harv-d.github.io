@@ -70,18 +70,57 @@ function displayQ4Choices() {
     }
   }
 
-function isFormValid() {
-    let isValid = true;
-    let q1Response = document.querySelector("#q1").value;
-    let validationFdbk = document.querySelector("#validationFdbk");
-  
-    if (q1Response === "") {
-      isValid = false;
-      validationFdbk.textContent = "Question 1 was not answered";
+  function isFormValid() {
+    let unanswered = [];
+
+    // Text, number, and dropdown questions
+    let questions = ["q1", "q2", "q5", "q6", "q7"];
+
+    questions.forEach(function(question) {
+        if (document.querySelector("#" + question).value.trim() === "") {
+            unanswered.push(question.substring(1));
+        }
+    });
+
+    // Q3 Checkboxes
+    if (!document.querySelector("#Jackson").checked &&
+        !document.querySelector("#Franklin").checked &&
+        !document.querySelector("#Jefferson").checked &&
+        !document.querySelector("#Roosevelt").checked) {
+        unanswered.push("3");
     }
-  
-    return isValid;
-  }
+
+    // Q4 Radio buttons
+    if (!document.querySelector('input[name="q4"]:checked')) {
+        unanswered.push("4");
+    }
+
+    // Q8 Checkboxes
+    if (!document.querySelector("#California").checked &&
+        !document.querySelector("#Oregon").checked &&
+        !document.querySelector("#Nevada").checked &&
+        !document.querySelector("#Washington").checked) {
+        unanswered.push("8");
+    }
+
+    // Q9 & Q10 Radio buttons
+    if (!document.querySelector('input[name="q9"]:checked')) {
+        unanswered.push("9");
+    }
+
+    if (!document.querySelector('input[name="q10"]:checked')) {
+        unanswered.push("10");
+    }
+
+    // Validation feedback, sorts numbers in ascending order
+    if (unanswered.length > 0) {
+      unanswered.sort((a, b) => Number(a) - Number(b));
+      document.querySelector("#validationFdbk").textContent = "Please answer question(s): " + unanswered.join(", ");
+      return false;
+    }
+
+    return true;
+}
   
   function gradeQuiz() {
     document.querySelector("#validationFdbk").textContent = "";
@@ -91,7 +130,7 @@ function isFormValid() {
     }
 
     score = 0;
-    let q1Response = document.querySelector("#q1").value.toLowerCase();
+    let q1Response = document.querySelector("#q1").value.toLowerCase().trim();
     let q2Response = document.querySelector("#q2").value;
     
     if (q1Response === "sacramento") {
@@ -167,14 +206,11 @@ function isFormValid() {
         wrongAnswer(10);
     }
   
-    document.querySelector("#totalScore").textContent = `Total Score: ${score}`;
-
     attempts++;
     document.querySelector("#totalAttempts").textContent = `Total Attempts: ${attempts}`;
     localStorage.setItem("total_attempts", attempts);
 
     let totalScore = document.querySelector("#totalScore");
-
     totalScore.textContent = `Total Score: ${score}`;
 
     if (score < 80) {
