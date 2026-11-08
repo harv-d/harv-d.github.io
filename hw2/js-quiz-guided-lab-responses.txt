@@ -1,0 +1,100 @@
+Guided Lab: JavaScript Geography Quiz
+Checkpoint Responses
+
+Downloaded: 11/7/2026, 8:08:49 PM
+
+Started: 11/6/2026, 7:39:35 PM
+Completed: 11/7/2026, 5:29:55 PM
+Time spent: 1310 minute(s), 21 second(s)
+Lesson 1: Set up the quiz page
+Question:
+Why does the textbox need an id value such as q1?
+
+Student response:
+It is used to identify the element to be used for further customization on the css stylesheet.
+
+----------------------------------------
+
+Started: 11/7/2026, 5:29:55 PM
+Completed: 11/7/2026, 6:01:48 PM
+Time spent: 31 minute(s), 53 second(s)
+Lesson 2: Add Bootstrap and connect JavaScript
+Question:
+What event is the button listening for, and what function runs when that event happens?
+
+Student response:
+It's listening for a button press and recording the value that was entered in the field.
+
+----------------------------------------
+
+Started: 11/7/2026, 6:01:48 PM
+Completed: 11/7/2026, 6:46:06 PM
+Time spent: 44 minute(s), 18 second(s)
+Lesson 3: Validate the first question
+Question:
+Why do we need this line of code?
+
+Student response:
+It inspects the field to see if the user entered a response.
+
+----------------------------------------
+
+Started: 11/7/2026, 6:46:06 PM
+Completed: 11/7/2026, 6:54:14 PM
+Time spent: 8 minute(s), 7 second(s)
+Lesson 4: Grade the first question
+Question:
+What is this line of code doing?
+
+Student response:
+It adds an existing element to another element, if it is already somewhere else on the page, appendChild() will move it to the new location.
+
+----------------------------------------
+
+Started: 11/7/2026, 6:54:14 PM
+Completed: 11/7/2026, 7:18:54 PM
+Time spent: 24 minute(s), 41 second(s)
+Lesson 5: Add a dropdown question and refactor feedback
+Question:
+What value is stored in q2Response when the user selects Missouri, and why?
+
+Student response:
+The value stored is "mo" because it is what Missouri is assigned as in index.html.
+
+----------------------------------------
+
+Started: 11/7/2026, 7:18:54 PM
+Completed: 11/7/2026, 7:38:19 PM
+Time spent: 19 minute(s), 25 second(s)
+Lesson 6: Add checkboxes and radio buttons
+Question:
+Why do the radio buttons all need the same name value?
+
+Student response:
+To identify the responses to question 4 only.
+
+----------------------------------------
+
+Started: 11/7/2026, 7:38:19 PM
+Completed: 11/7/2026, 7:55:02 PM
+Time spent: 16 minute(s), 42 second(s)
+Lesson 7: Randomize radio button choices
+Question:
+What is the main reason for implementing the displayQ4Choices() function?
+
+Student response:
+To handle the logic on how the answers are displayed to the user, in this case, being randomized.
+
+----------------------------------------
+
+Started: 11/7/2026, 7:54:40 PM
+Completed: 11/7/2026, 8:08:32 PM
+Time spent: 13 minute(s), 52 second(s)
+Lesson 8: Store total attempts with localStorage
+Question:
+Why does the attempts variable reset after a page reload unless we save it in localStorage?
+
+Student response:
+It is because the variables are stored in memory while the page is running, not permanently saved.
+
+----------------------------------------
