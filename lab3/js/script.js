@@ -1,27 +1,36 @@
+loadStates();
 document.addEventListener("DOMContentLoaded", loadStates);
 document.querySelector("#zip").addEventListener("change", displayCity);
-document.querySelector("#username").addEventListener("change", checkUsername);
+document.querySelector("#state").addEventListener("change", loadCounties);
+document.querySelector("#username").addEventListener("input", checkUsername);
+document.querySelector("#password").addEventListener("focus", suggestPassword);
 document.querySelector("#signupForm").addEventListener("submit", validateForm);
+
 
 async function displayCity() {
   try {
     let zipCode = document.querySelector("#zip").value;
+    let zipError = document.querySelector("#zipError");
+
     let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCode}`;
     let response = await fetch(url);
     let data = await response.json();
 
-    //the API returns false when the zip code is not found, so we can check for that case before trying to access the city property
     if (data === false) {
-      document.querySelector("#city").textContent = "Zip code not found";
+      zipError.textContent = "Zip code not found";
+      document.querySelector("#city").textContent = "";
       document.querySelector("#latitude").textContent = "";
       document.querySelector("#longitude").textContent = "";
       return;
     }
 
+    zipError.textContent = "";
     document.querySelector("#city").textContent = data.city;
+    document.querySelector("#latitude").textContent = data.latitude;
+    document.querySelector("#longitude").textContent = data.longitude;
 
   } catch (error) {
-    document.querySelector("#city").textContent = "Unable to retrieve city";
+    document.querySelector("#zipError").textContent = "Unable to retrieve ZIP code";
     console.error(error);
   }
 }
@@ -59,6 +68,33 @@ async function loadStates() {
     }
   }
 
+  async function loadCounties() {
+    let state = document.querySelector("#state").value;
+    let countyMenu = document.querySelector("#county");
+  
+    countyMenu.textContent = "";
+  
+    if (state === "") {
+      return;
+    }
+  
+    try {
+      let url = `https://csumb.space/api/countyListAPI.php?state=${state}`;
+      let response = await fetch(url);
+      let data = await response.json();
+  
+      for (let county of data) {
+        let option = document.createElement("option");
+        option.value = county.county;
+        option.textContent = county.county;
+        countyMenu.appendChild(option);
+      }
+  
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
   async function checkUsername() {
     let username = document.querySelector("#username").value;
     let usernameError = document.querySelector("#usernameError");
@@ -84,6 +120,20 @@ async function loadStates() {
     }
   }
 
+  async function suggestPassword() {
+    try {
+      let url = "https://csumb.space/api/suggestedPassword.php?length=8";
+      let response = await fetch(url);
+      let data = await response.json();
+  
+      document.querySelector("#suggestedPassword").textContent =
+        `Suggested password: ${data.password}`;
+  
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
   async function validateForm(event) {
     event.preventDefault();
   
@@ -105,6 +155,27 @@ async function loadStates() {
         isValid = false;
       }
     }
+
+    let password = document.querySelector("#password").value;
+    let passwordError = document.querySelector("#passwordError");
+
+    if (password.length < 6) {
+      passwordError.textContent = "Password must be at least 6 characters";
+      passwordError.style.color = "red";
+      event.preventDefault();
+      return;
+    }
+
+    let passwordAgain = document.querySelector("#passwordAgain").value;
+
+    if (password !== passwordAgain) {
+      passwordError.textContent = "Passwords do not match";
+      passwordError.style.color = "red";
+      event.preventDefault();
+      return;
+    }
+    
+    passwordError.textContent = "";
   
     if (isValid) {
       document.querySelector("#signupForm").submit();
