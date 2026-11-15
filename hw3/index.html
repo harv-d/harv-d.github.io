@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Character Search</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Rick and Morty Character Search</h1>
+        <p>Search for characters from the Rick and Morty universe!</p>
+    </header>
+
+    <main>
+        <form id="searchForm">
+            <label for="characterName">Character Name:</label>
+            <input type="text" id="characterName" placeholder="Enter a character name">
+
+            <label for="species">Species:</label>
+            <select id="species">
+                <option value="">All Species</option>
+                <option value="Human">Human</option>
+                <option value="Alien">Alien</option>
+                <option value="Humanoid">Humanoid</option>
+                <option value="Robot">Robot</option>
+                <option value="Animal">Animal</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+
+        <p id="message"></p>
+
+        <section id="results"></section>
+    </main>
+
+    <footer>
+        <p>Harvey Duran. All rights reserved.<br>
+        This site is for academic purposes only.<br>
+        CST 336 Internet Programming.</p>
+        <img src="img/csumb_logo.png" width="400" height="150" style="opacity: 0.5;" alt="CSUMB Logo">
+     </footer>
+
+</body>
+</html>
