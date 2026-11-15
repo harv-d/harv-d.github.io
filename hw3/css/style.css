@@ -98,3 +98,20 @@ button:hover {
     font-size: 14px;
     margin: 8px 0;
 }
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+#pageInfo {
+    font-weight: bold;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
