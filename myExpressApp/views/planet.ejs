@@ -8,9 +8,27 @@
 
     <h2>Planet <%= planetName %></h2>
 
+    <img src="<%= planetInfo.image %>" alt="<%= planetName %>">
+
     <p><%= planetInfo.description %></p>
 
-    <img src="<%= planetInfo.image %>" alt="<%= planetName %>">
+    <h3>Planet Information</h3>
+
+    <p><strong>Distance from Sun:</strong> <%= planetInfo.distanceFromSun %></p>
+
+    <p><strong>Year Length:</strong> <%= planetInfo.yearLength %></p>
+
+    <p><strong>Radius:</strong> <%= planetInfo.radius %> miles</p>
+
+    <p><strong>Length of Day:</strong> <%= planetInfo.oneEarthDay %></p>
+
+    <p><strong>Number of Moons:</strong> <%= planetInfo.moons %></p>
+
+    <p>
+        <a href="<%= planetInfo.websiteLink %>" target="_blank" rel="noopener noreferrer">
+            Learn More About <%= planetName %>
+        </a>
+    </p>
 
     <%- include('partials/footer.ejs') %>
 </body>

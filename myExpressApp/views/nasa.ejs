@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+
+<body>
+    <h1>The Solar System</h1>
+
+    <%- include('partials/nav.ejs') %>
+
+    <h2>NASA Astronomy Picture of the Day</h2>
+
+    <% if (error) { %>
+
+        <p><%= error %></p>
+
+    <% } else { %>
+
+        <h3><%= nasaInfo.title %></h3>
+
+        <p><strong>Date:</strong> <%= nasaInfo.date %></p>
+
+        <% if (nasaInfo.media_type === "image" && nasaInfo.hdurl) { %>
+
+            <img src="<%= nasaInfo.hdurl %>" alt="<%= nasaInfo.title %>">
+        
+        <% } else { %>
+        
+            <p>
+                <a href="<%= nasaInfo.permalink %>" target="_blank" rel="noopener noreferrer">
+                    View Today's Picture on NASA's Website
+                </a>
+            </p>
+        
+        <% } %>
+
+        <h3>About This Picture</h3>
+
+        <div class="nasa-description">
+            <%- nasaInfo.explanation %>
+        </div>
+
+    <% } %>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

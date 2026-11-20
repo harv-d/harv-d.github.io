@@ -30,3 +30,28 @@ app.get('/planet', (req, res) => {
 
     res.render('planet', { planetInfo, planetName });
 });
+
+app.get('/nasa', async (req, res) => {
+    let url = "https://science.nasa.gov/wp-json/wp/v2/apod-basic?page=1&per_page=1";
+
+    try {
+        let response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`NASA API Error: ${response.status}`);
+        }
+
+        let data = await response.json();
+        let nasaInfo = data[0];
+
+        res.render('nasa', { nasaInfo, error: null });
+
+    } catch (error) {
+        console.error(error.message);
+
+        res.render('nasa', {
+            nasaInfo: null,
+            error: "NASA's API is temporarily unavailable. Please try again later."
+        });
+    }
+});
