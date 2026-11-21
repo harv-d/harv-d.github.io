@@ -1,0 +1,33 @@
+#authorInfo {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#authorPicture {
+    width: 200px;
+    height: auto;
+}
+
+#authorBio {
+    flex: 1;
+}
+
+#languageFlag:not([hidden]) {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin-top: 15px;
+}
+
+#quoteError {
+    color: red;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

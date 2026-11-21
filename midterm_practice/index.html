@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famous Quotes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <h1>Famous Quotes</h1>
+
+    <main>
+
+        <section id="quoteSelection">
+            <h2>Quote of the Day</h2>
+
+            <p id="quote"></p>
+            <p id="author"></p>
+
+            <button id="authorBtn">Display Author Info</button>
+            <div id="authorInfo">
+                <img id="authorPicture" alt="Author picture">
+                <p id="authorBio"></p>
+            </div>
+        </section>
+
+        <section id="translationSection">
+            <h2>Translate Quote</h2>
+            
+            <div id="languageOptions"></div>
+            <button id="translateBtn">Translate</button>
+
+            <img id="languageFlag" alt="Selected language flag" hidden>
+            <p id="translatedQuote"></p>
+        </section>   
+        
+        
+        <section id="multipleQuotesSection">
+            <h2>Get Multiple Quotes</h2>
+
+            <label for="quoteCount">Number of quotes (1-5):</label>
+            <input type="text" id="quoteCount">
+
+            <button id="getQuotesBtn">Get Quotes</button>
+
+            <p id="quoteError"></p>
+
+            <div id="quotesList"></div>
+        </section>
+
+                     
+    </main>
+    
+</body>
+</html>
