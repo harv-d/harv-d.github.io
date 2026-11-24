@@ -3,7 +3,6 @@
 <main id="tools-main">
     <article>
         <h2>Network Tools</h2>
-
         <p>
             Network tools provide useful information about IP
             addresses, network interfaces, and connectivity.
@@ -11,11 +10,69 @@
             troubleshoot computer networks.
         </p>
 
-        <h3>IP Geolocation</h3>
-        <p>IP address information will be displayed here.</p>
+    <div class="tools-layout">
 
+        <article>
+        <h3>IP Geolocation</h3>
+        <p>
+            IP geolocation provides information about the approximate
+            geographical location and organization associated with
+            a public IP address.
+        </p>
+        
+        <% if (ipData && ipData.ip) { %>
+            <p><strong>IP Address:</strong> <%= ipData.ip %></p>
+            <p><strong>Hostname:</strong> <%= ipData.hostname %></p>
+            <p><strong>City:</strong> <%= ipData.city %></p>
+            <p><strong>Region:</strong> <%= ipData.region %></p>
+            <p><strong>Country:</strong> <%= ipData.country %></p>
+            <p><strong>Organization:</strong> <%= ipData.org %></p>
+            <p><strong>Time Zone:</strong> <%= ipData.timezone %></p>
+        <% } else { %>
+            <p>Unable to retrieve IP address information.</p>
+        <% } %>
+        
+        <p>
+            <strong>Source:</strong>
+            <a href="https://ipinfo.io/" target="_blank">IPinfo API</a>
+        </p>
+        </article>
+
+        <article>
         <h3>Network Interfaces</h3>
-        <p>Server network information will be displayed here.</p>
+        <p>
+            Network interfaces allow a computer to communicate with
+            other devices on a network. The information below is
+            retrieved from the server hosting this website.
+        </p>
+        
+        <% if (networkData.length > 0) { %>
+            <div class="network-grid">
+                <% networkData.forEach(network => { %>
+                    <div class="network-card">
+                        <h4><%= network.iface %></h4>
+                        <p><strong>Type:</strong> <%= network.type || "Unknown" %></p>
+                        <p><strong>Status:</strong> <%= network.operstate %></p>
+                        <p><strong>Speed:</strong> <%= network.speed > 0 ? network.speed + " Mbps" : "Unavailable" %></p>
+                        <p><strong>MTU:</strong> <%= network.mtu %> bytes</p>
+                        <p><strong>Virtual:</strong> <%= network.virtual ? "Yes" : "No" %></p>
+                        <p><strong>Internal:</strong> <%= network.internal ? "Yes" : "No" %></p>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>Unable to retrieve network interface information.</p>
+        <% } %>
+        
+        <p>
+            <strong>Source:</strong>
+            <a href="https://www.npmjs.com/package/systeminformation"
+               target="_blank">systeminformation Node Package</a>
+        </p>
+        </article>
+
+    </div>
+
     </article>
 </main>
 

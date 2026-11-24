@@ -1,4 +1,5 @@
 import express from "express";
+import si from "systeminformation";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,9 +39,38 @@ app.get("/security", (req, res) => {
     });
 });
 
-// Tools route
-app.get("/tools", (req, res) => {
+// Network Tools route
+app.get("/tools", async (req, res) => {
+
+    let url = "https://ipinfo.io/8.8.8.8/json";
+    let ipData = null;
+    let networkData = [];
+
+    // Web API
+    try {
+        let response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status}`);
+        }
+
+        ipData = await response.json();
+
+    } catch (error) {
+        console.log("API Error:", error);
+    }
+
+    // Node package
+    try {
+        networkData = await si.networkInterfaces();
+
+    } catch (error) {
+        console.log("System Information Error:", error);
+    }
+
     res.render("tools", {
-        title: "Network Tools"
+        title: "Network Tools",
+        ipData: ipData,
+        networkData: networkData
     });
 });
