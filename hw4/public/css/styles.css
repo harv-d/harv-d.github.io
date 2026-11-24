@@ -1,0 +1,122 @@
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.5;
+}
+
+header, nav, main, footer {
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #00FF00;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #fff;
+  background-color: #173f73;
+  font-size: 1.75rem;
+  border-bottom: 2px solid lime;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+article {
+  max-width: 800px;
+  padding: 2rem;
+  text-align: left;
+}
+
+article a, aside a {
+  color: lime;
+}
+
+article a:hover, aside a:hover {
+  color: white;
+}
+
+/* Hardware Page */
+#hardware-main {
+  display: block;
+}
+
+.hardware-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hardware-columns {
+  display: flex;
+  flex: 2;
+  gap: 2rem;
+}
+
+.hardware-columns article {
+  flex: 1;
+  background-color: #171717;
+  border-left: 3px solid #173f73;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hardware-layout figure {
+  flex: 1;
+  margin: 0;
+}
+
+.hardware-layout img {
+  max-width: 100%;
+  height: auto;
+}
+
+#hardware-main aside {
+  margin-top: 3rem;
+}
+
+footer {
+  font-size: 0.75rem;
+  color: lightgray;
+}
+
+@media (max-width: 900px) {
+  .hardware-layout {
+    flex-direction: column;
+  }
+
+  .hardware-columns {
+    flex-direction: column;
+  }
+}
+
+/* Protocols and Security Pages */
+#protocols-main article,
+#security-main article {
+  max-width: 850px;
+}
+
+#protocols-main figure,
+#security-main figure {
+  margin: 2rem;
+  align-self: center;
+}
+
+#protocols-main img,
+#security-main img {
+  max-width: 100%;
+  height: auto;
+}
