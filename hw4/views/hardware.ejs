@@ -13,15 +13,7 @@
 </head>
 <body> 
 
-  <header>
-    <h1>Computer Networking</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="hardware.html">Hardware</a>
-      <a href="protocols.html">Protocols</a>
-      <a href="security.html">Security</a>
-    </nav>
-  </header>
+  <%- include("partials/header") %>
 
   <main id="hardware-main">
     <h2>Network Hardware</h2>
@@ -67,7 +59,7 @@
     </div>
 
     <figure>
-      <img src="img/network_hardware.png" width="600" alt="Network routers and switches">
+      <img src="/img/network_hardware.png" width="600" alt="Network routers and switches">
       <figcaption><i>Examples of networking hardware.</i></figcaption>
     </figure>
     </div>
@@ -81,12 +73,7 @@
     </aside>
   </main>
 
-  <footer>
-    <p>Harvey Duran. All rights reserved.<br>
-    This site is for academic purposes only.<br>
-    CST 336 Internet Programming.</p>
-    <img src="img/csumb_logo.png" width="400" height="150" style="opacity: 0.5;" alt="CSUMB Logo">
-  </footer>
+  <%- include("partials/footer") %>
 
 </body>
 </html>

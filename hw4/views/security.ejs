@@ -13,15 +13,7 @@
 </head>
 <body> 
 
-  <header>
-    <h1>Computer Networking</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="hardware.html">Hardware</a>
-      <a href="protocols.html">Protocols</a>
-      <a href="security.html">Security</a>
-    </nav>
-  </header>
+  <%- include("partials/header") %>
 
 <main id="security-main">
 
@@ -84,20 +76,14 @@
   </article>
 
   <figure>
-    <img src="img/network_security.jpg" width="400"
+    <img src="/img/network_security.jpg" width="400"
     alt="Illustration representing computer network security">
     <figcaption><i>Network security helps protect devices and information.</i></figcaption>
   </figure>
 
 </main>
 
-
-  <footer>
-    <p>Harvey Duran. All rights reserved.<br>
-    This site is for academic purposes only.<br>
-    CST 336 Internet Programming.</p>
-    <img src="img/csumb_logo.png" width="400" height="150" style="opacity: 0.5;" alt="CSUMB Logo">
-  </footer>
+  <%- include("partials/footer") %>
 
 </body>
 </html>
